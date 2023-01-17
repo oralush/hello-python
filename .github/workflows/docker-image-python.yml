@@ -25,4 +25,4 @@ jobs:
     - name: Docker Push
       run: docker push oralush49/or_repo:python-hello-world
     - name: Docker run
-      run: docker run -it oralush49/or_repo:python-hello-world
+      run: docker run oralush49/or_repo:python-hello-world
