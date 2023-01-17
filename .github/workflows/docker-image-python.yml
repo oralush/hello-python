@@ -23,4 +23,4 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Docker Push
-      run: docker push oralush49/or_repo:python-hello-world:$(date +%s)
+      run: docker push oralush49/or_repo:$(date +%s)
