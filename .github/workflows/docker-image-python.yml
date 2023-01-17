@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build Docker file
-      run: docker build . --file docker/Dockerfile --tag oralush49/or_repo:python-hello-world-$(date +%s)
+      run: docker build . --file docker/Dockerfile --tag oralush49/or_repo:python-hello-world
     - name: login to docker hub
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
@@ -23,4 +23,4 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Docker Push
-      run: docker push oralush49/or_repo:python-hello-world-$(date +%s)
+      run: docker push oralush49/or_repo:python-hello-world
