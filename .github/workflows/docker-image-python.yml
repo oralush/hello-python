@@ -14,5 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file docker/Dockerfile --tag my-image-name:$(date +%s)
+    - name: Build the Docker file
+      run: docker build . --file docker/Dockerfile --tag python-hello-world:$(date +%s)
+    - name: login to docker hub
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Docker Push
+      run: docker push oralush49/or_repo:python-hello-world:$(date +%s)
