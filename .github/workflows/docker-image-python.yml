@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build Docker file
-      #run: |
-      #  docker-compose up -d
-      run: docker build . --file app/Dockerfile --tag oralush49/or_repo:python-hello-world
+    - name: Build Docker compose
+      run: |
+        docker-compose up -d
+      #run: docker build . --file app/Dockerfile --tag oralush49/or_repo:python-hello-world
     - name: login to docker hub
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
