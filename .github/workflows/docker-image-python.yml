@@ -15,16 +15,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build Docker file
-      run: |
-        docker-compose up -d
-    # run: docker build . --file docker/Dockerfile --tag oralush49/or_repo:python-hello-world
+      #run: |
+      #  docker-compose up -d
+      run: docker build . --file docker/Dockerfile --tag oralush49/or_repo:python-hello-world
     - name: login to docker hub
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-   # - name: Docker Push
+    # - name: Docker Push
     #  run: docker push oralush49/or_repo:python-hello-world
     #- name: Docker run
     #  run: docker run -p 5000:5000 oralush49/or_repo:python-hello-world
