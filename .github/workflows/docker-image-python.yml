@@ -17,7 +17,7 @@ jobs:
     - name: Build Docker file
       #run: |
       #  docker-compose up -d
-      run: docker build . --file docker/Dockerfile --tag oralush49/or_repo:python-hello-world
+      run: docker build . --file app/Dockerfile --tag oralush49/or_repo:python-hello-world
     - name: login to docker hub
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
