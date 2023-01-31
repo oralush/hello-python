@@ -1,2 +1,2 @@
-Flask
-Flask-MySQL
+Flask==0.12
+Flask-MySQL==1.4.0
