@@ -3,7 +3,7 @@ FROM python:2.7-slim
 RUN mkdir /app
 WORKDIR /app
 ADD . /app/
-RUN pip install -r app/requirements.txt
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 ENV MYSQL_USER python
 ENV MYSQL_PASS python
