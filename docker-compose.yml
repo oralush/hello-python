@@ -13,5 +13,8 @@ services:
     - "32000:3306"
    environment:
     MYSQL_ROOT_PASSWORD: root
+    MYSQL_USER: or_admin
+    MYSQL_PASSWORD: or123
+    MYSQL_DATABASE: or_db
    volumes:
     - ./data:/var/lib/mysql
