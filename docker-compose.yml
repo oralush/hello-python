@@ -14,7 +14,7 @@ services:
       - ./mysql:/docker-entrypoint-initdb.d
 
   app:
-    build: ./docker/
+    build: ./app/
     ports:
       - "5000:5000"
     depends_on:
