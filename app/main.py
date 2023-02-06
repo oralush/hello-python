@@ -1,22 +1,37 @@
 from flask import Flask
-from flaskext.mysql import MySQL
-import os
+import mysql.connector
+from mysql.connector import Error
+
+
 
 app = Flask(__name__)
-app.config['MYSQL_DATABASE_USER'] = os.environ.get('MYSQL_USER', None)
-app.config['MYSQL_DATABASE_PASSWORD'] = os.environ.get('MYSQL_PASS', None)
-app.config['MYSQL_DATABASE_DB'] = os.environ.get('MYSQL_DB', None)
-app.config['MYSQL_DATABASE_HOST'] = os.environ.get('MYSQL_HOST', None)
-mysql = MySQL(app)
-mysql.init_app(app)
-conn = mysql.connect()
 
+
+try:
+    connection = mysql.connector.connect(host='localhost',
+                                         database='or_db',
+                                         user='python',
+                                         password='python')
+    if connection.is_connected():
+        db_Info = connection.get_server_info()
+        print("Connected to MySQL Server version ", db_Info)
+        cursor = connection.cursor()
+        cursor.execute("select database();")
+        record = cursor.fetchone()
+        print("You're connected to database: ", record)
+
+except Error as e:
+    print("Error while connecting to MySQL", e)
+finally:
+    if connection.is_connected():
+        cursor.close()
+        connection.close()
+        print("MySQL connection is closed")
+        
 @app.route("/")
 def main():
-    cursor = conn.cursor()
-    cursor.execute('''SELECT text FROM data WHERE id = 1''')
-    rv = cursor.fetchall()
-    return rv[0]
+    def hello():
+        return "Hello from Python!"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
