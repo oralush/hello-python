@@ -1,2 +1,2 @@
 Flask==0.12
-https://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.1.3.tar.gz
+mysql-connector-python~=8.0.5
