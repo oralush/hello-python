@@ -1,5 +1,13 @@
   version: "3.3"
   services:
+    python_flask:
+      container_name: "python"
+      build: ./app/
+      links:
+        - mysql
+      ports:
+        - "5000:5000"
+        
     mysql:
       container_name: "python-db"
       image: "mysql:8"
@@ -13,8 +21,4 @@
         MYSQL_PASSWORD: python
         MYSQL_DATABASE: or_db
         
-    python_flask:
-      container_name: "python"
-      build: ./app/
-      ports:
-        - "5000:5000"
+
