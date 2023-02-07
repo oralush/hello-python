@@ -9,10 +9,11 @@ app = Flask(__name__)
 
 try:
     print("------------------Or---------------------")
-    connection = mysql.connector.connect(host='localhost',
+    connection = mysql.connector.connect(host='mysql',
                                          database='or_db',
                                          user='python',
-                                         password='python')
+                                         password='python',
+                                         port='3306')
     if connection.is_connected():
         db_Info = connection.get_server_info()
         print("Connected to MySQL Server version ", db_Info)
