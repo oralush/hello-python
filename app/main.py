@@ -29,9 +29,8 @@ finally:
         print("MySQL connection is closed")
         
 @app.route("/")
-def main():
-    def hello():
-        return "Hello from Python!"
+def hello():
+    return "Hello Or from Python!"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
