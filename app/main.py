@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 
 try:
+    print("------------------Or---------------------")
     connection = mysql.connector.connect(host='localhost',
                                          database='or_db',
                                          user='python',
