@@ -13,7 +13,7 @@
         MYSQL_PASSWORD: python
         MYSQL_DATABASE: or_db
         
-    python:
+    python_flask:
       container_name: "python"
       build: ./app/
       ports:
